@@ -1,6 +1,7 @@
 import TodoItem from '@/components/TodoItem';
 import { prisma } from '@/db';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 
 function getTodo() {
   return prisma.todo.findMany();
@@ -14,6 +15,10 @@ export default async function Home() {
   // });
 
   const todos = await getTodo();
+
+  if (!todos) {
+    return <h1 className='text-2xl'>We ain't got any todos mate, click new button and create some</h1>;
+  }
 
   return (
     <>
