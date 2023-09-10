@@ -93,7 +93,7 @@ jobs:
       - name: Set up environment variables
         run: echo "DATABASE_URL=$DATABASE_URL" >> $GITHUB_ENV
         env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_URL : ${{ secrets.DATABASE_URL }}
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
