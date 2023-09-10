@@ -2,13 +2,15 @@
 #
 # To get started with Next.js see: https://nextjs.org/docs/getting-started
 #
+
 name: Deploy Next.js site to Pages
 
 on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
-
+    paths:
+      - "./prisma/**/*.*"
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -92,8 +94,10 @@ jobs:
     steps:
       - name: Set up environment variables
         run: echo "DATABASE_URL=$DATABASE_URL" >> $GITHUB_ENV
+      - name: Deploy Migrations
+        run: npx prisma migrate deploy
         env:
-          DATABASE_URL : ${{ secrets.GITHUB_TOKEN }}
+          DATABASE_URL: ${{ secrets.GITHUB_TOKEN }}
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
