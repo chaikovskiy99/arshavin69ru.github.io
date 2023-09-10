@@ -101,7 +101,7 @@ jobs:
       # - name: Deploy Migrations
       #   run: npx prisma migrate deploy
       #   env:
-      #     DATABASE_URL: ${{ secrets.GITHUB_TOKEN }}
+      #     DATABASE_URL: ${{ secrets.DATABASE_URL }}
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
