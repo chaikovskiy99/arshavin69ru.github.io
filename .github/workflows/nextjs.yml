@@ -48,6 +48,8 @@ jobs:
             echo "Unable to determine package manager"
             exit 1
           fi
+          env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
