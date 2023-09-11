@@ -15,8 +15,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
 
-
-
   return (
     <html lang="en">
       <body className={`${inter.className} container bg-slate-800 text-slate-100 mx-auto -4`}>

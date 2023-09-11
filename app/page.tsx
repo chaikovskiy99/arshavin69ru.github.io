@@ -1,7 +1,6 @@
 import TodoItem from '@/components/TodoItem';
 import { prisma } from '@/db';
 import Link from 'next/link';
-
 function getTodo() {
   return prisma.todo.findMany();
 }
@@ -12,7 +11,7 @@ export default async function Home() {
   //     title: "Gotta pee!!", complete: false
   //   }
   // });
-
+  
   const todos = await getTodo();
 
   if (!todos) {
