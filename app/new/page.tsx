@@ -11,6 +11,8 @@ function createTodo(title: string) {
     if (typeof title !== 'string' || title.length === 0) {
         throw new Error("Invalid title!");
     }
+
+    
     const saveData = async () => {
         await prisma.todo.create({
             data: {
